@@ -1,14 +1,7 @@
-# syntax=docker/dockerfile:1
+FROM ubuntu
 
-FROM eclipse-temurin:17-jdk-jammy
+MAINTAINER sofija
 
-WORKDIR /app
+RUN apt-get update
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
-
-COPY src ./src
-
-CMD ["./mvnw", "spring-boot:run"]
-~
+CMD ["echo", "Hello World"]
